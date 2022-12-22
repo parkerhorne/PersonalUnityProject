@@ -12,10 +12,13 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 _direction;
 
+    private ThirdPersonCamera _tpc;
+
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody = GetComponentInChildren<Rigidbody>();
+        _tpc = GameObject.Find("ThirdPersonCamera").GetComponent<ThirdPersonCamera>();
     }
 
     // Update is called once per frame
@@ -26,12 +29,13 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        GetDirection();
+        // GetDirection();
         MovePlayer();
     }
 
     void MovePlayer()
     {
+        _direction = _tpc.GetDirectionVector();
         _rigidbody.AddForce(_direction.normalized * speed, ForceMode.Acceleration);
     }
 

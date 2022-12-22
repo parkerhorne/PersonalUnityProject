@@ -23,7 +23,7 @@ public class ThirdPersonCamera : MonoBehaviour
     void Update()
     {
         // The view direction of the camera
-        Vector3 viewDir = player.position - new Vector3(transform.position.x, player.position.y, transform.position.z);
+        Vector3 viewDir = playerObject.position - new Vector3(transform.position.x, playerObject.position.y, transform.position.z);
         orientation.forward = viewDir.normalized;
         
         float vertical = Input.GetAxis("Vertical");
@@ -36,5 +36,10 @@ public class ThirdPersonCamera : MonoBehaviour
             playerObject.forward = Vector3.Slerp(playerObject.forward, _direction.normalized,
                 Time.deltaTime * rotationSpeed);
         }
+    }
+
+    public Vector3 GetDirectionVector()
+    {
+        return _direction;
     }
 }
