@@ -1,0 +1,9 @@
+{
+    "EnemyData":
+    [
+        {
+            "Name" : "basic-enemy",
+            "Cost" : 5
+        }
+    ]
+}
