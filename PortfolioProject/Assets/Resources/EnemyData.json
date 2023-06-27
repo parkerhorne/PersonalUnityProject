@@ -2,8 +2,16 @@
     "EnemyData":
     [
         {
-            "Name" : "basic-enemy",
-            "Cost" : 5
+            "name": "BasicEnemy",
+            "cost": 5,
+            "health": 20,
+            "speed": 5
+        },
+        {
+            "name": "Test",
+            "cost" : 1000,
+            "health" : 100,
+            "speed" : 10
         }
     ]
 }
