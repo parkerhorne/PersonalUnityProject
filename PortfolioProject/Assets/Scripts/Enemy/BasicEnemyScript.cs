@@ -4,27 +4,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+public enum EnemyState
+{
+    Spawning,
+    Attacking
+}
 public class BasicEnemyScript : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private GameObject _player;
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private float speed = 5.0f;
+    [SerializeField] private float spawnTimer = 1.5f;
+    private EnemyState _state;
+    
     void Start()
     {
         _player = GameObject.Find("PlayerCapsule");
     }
 
+    void Awake()
+    {
+        _state = EnemyState.Spawning;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(FollowPlayer());
-    }
+        spawnTimer -= Time.deltaTime;
+        if (_state == EnemyState.Attacking)
+        {
+            StartCoroutine(FollowPlayer());
+        }
 
-    float PlayerDistance()
-    {
-        Debug.Log("Player Position: " + _player.transform.position);
-        return Vector3.Distance(_player.transform.position, transform.position);
+        if (_state == EnemyState.Spawning && spawnTimer <= 0.0f)
+        {
+            _state = EnemyState.Attacking;
+        }
     }
 
     Vector3 VelocityDirection()
