@@ -24,17 +24,7 @@ public class EnemyDataReader : MonoBehaviour
     // Creating one static instance of the data reader
     private static EnemyDataReader enemyDataReader;
     public EnemyDataList enemyDataList;
-
-    private static EnemyDataReader Instance()
-    {
-        enemyDataReader = FindObjectOfType<EnemyDataReader>() as EnemyDataReader;
-        if (!enemyDataReader)
-        {
-            Debug.LogError("Json Reader is missing.");
-        }
-
-        return enemyDataReader;
-    }
+    
     void Start()
     {
         if (!jsonFile)
