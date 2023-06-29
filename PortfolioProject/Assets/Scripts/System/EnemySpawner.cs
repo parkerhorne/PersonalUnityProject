@@ -51,9 +51,9 @@ public class EnemySpawner : MonoBehaviour
                 _randomSpawnPosition = new Vector3(Random.Range(-_spawnRangeX, _spawnRangeX), 0,
                     Random.Range(-_spawnRangeY, _spawnRangeY));
             } while (PlayerDistance(_randomSpawnPosition) < 15.0f);
-            Debug.Log("Distance: " + PlayerDistance(_randomSpawnPosition));
+            //Debug.Log("Distance: " + PlayerDistance(_randomSpawnPosition));
             Instantiate(_testEnemy, _randomSpawnPosition, Quaternion.identity);
-            test_timer = 1.0f;
+            test_timer = 2.0f;
         }
     }
 }

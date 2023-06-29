@@ -53,11 +53,11 @@ public class BasicEnemyScript : MonoBehaviour
         yield return new WaitForSeconds(.25f);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
-    }
+    }*/
 }

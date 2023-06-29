@@ -23,7 +23,7 @@ public class EnemyDataReader : MonoBehaviour
 
     // Creating one static instance of the data reader
     private static EnemyDataReader enemyDataReader;
-    public EnemyDataList enemyDataList;
+    public static EnemyDataList enemyDataList;
     
     void Start()
     {
@@ -46,9 +46,16 @@ public class EnemyDataReader : MonoBehaviour
         }
         return dataList;
     }
-    // Update is called once per frame
-    void Update()
+
+    public static EnemyInfo RetrieveEnemyInfo(string name)
     {
-        
+        foreach (EnemyInfo info in enemyDataList.EnemyData)
+        {
+            if (name.Contains(info.name))
+            {
+                return info;
+            }
+        }
+        return null;
     }
 }
