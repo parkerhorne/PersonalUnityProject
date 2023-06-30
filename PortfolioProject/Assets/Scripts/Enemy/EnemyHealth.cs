@@ -9,8 +9,10 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private float currHealth;
     [SerializeField] private float armor = 0.0f;
     [SerializeField] private GameObject _deathParticlesObj;
+    [SerializeField] private GameObject _player;
     void Awake()
     {
+        _player = GameObject.Find("PlayerCapsule");
         EnemyInfo info = EnemyDataReader.RetrieveEnemyInfo(name);
         maxHealth = info.health;
         currHealth = maxHealth;
@@ -44,6 +46,13 @@ public class EnemyHealth : MonoBehaviour
             TakeDamage(weaponData.damage);
             // remove this if implementing pierce, probably keep array of colliding objects
             Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerHealth _ph = _player.GetComponent<PlayerHealth>();
+            EnemyInfo info = EnemyDataReader.RetrieveEnemyInfo(gameObject.name);
+            _ph.TakeDamage(info.damage);
+            Destroy(gameObject);
         }
     }
 }

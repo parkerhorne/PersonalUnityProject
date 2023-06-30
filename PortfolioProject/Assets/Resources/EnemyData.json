@@ -5,13 +5,15 @@
             "name": "BasicEnemy",
             "cost": 5,
             "health": 20,
-            "speed": 5
+            "speed": 5,
+            "damage": 10
         },
         {
             "name": "Test",
             "cost" : 1000,
             "health" : 100,
-            "speed" : 10
+            "speed" : 10,
+            "damage": 10000
         }
     ]
 }

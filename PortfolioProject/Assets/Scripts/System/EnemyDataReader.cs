@@ -11,6 +11,7 @@ public class EnemyInfo
     public int cost;
     public float health;
     public float speed;
+    public float damage;
 }
 [System.Serializable]
 public class EnemyDataList
