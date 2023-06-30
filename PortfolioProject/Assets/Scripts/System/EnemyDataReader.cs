@@ -43,7 +43,7 @@ public class EnemyDataReader : MonoBehaviour
 
         foreach (EnemyInfo info in dataList.EnemyData)
         {
-            Debug.Log("Enemy found: " + info.name);
+            //Debug.Log("Enemy found: " + info.name);
         }
         return dataList;
     }

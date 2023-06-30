@@ -47,7 +47,7 @@ public class JsonDataReader : MonoBehaviour
 
         foreach (WeaponInfo info in dataList.WeaponData)
         {
-            Debug.Log("Weapon found: " + info.name);
+            //Debug.Log("Weapon found: " + info.name);
         }
         return dataList;
     }

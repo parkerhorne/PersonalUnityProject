@@ -11,6 +11,8 @@ public class PlayerEXPManager : MonoBehaviour
     [SerializeField] private float currentExp;
 
     [SerializeField] private float[] expThresholds;
+
+    [SerializeField] private RectTransform _expBar;
     
     
     void Start()
@@ -24,12 +26,25 @@ public class PlayerEXPManager : MonoBehaviour
             5000, 6000, 7500, 10000
         };
         maxLevel = expThresholds.Length;
+
+        _expBar = GameObject.Find("XPBar").GetComponent<RectTransform>();
     }
 
 
     public void GainExperience(float amt)
     {
         currentExp += amt;
+        if (playerLevel == 0)
+        {
+            Vector3 expOffset = new Vector3(100 * (amt / expThresholds[playerLevel]), 0, 0);
+            _expBar.localPosition += expOffset;
+        }
+        else
+        {
+            Vector3 expOffset = new Vector3(100 * (amt / (expThresholds[playerLevel] - expThresholds[playerLevel - 1])), 0, 0);
+            _expBar.localPosition += expOffset;
+        }
+        
         HandleLevelUp();
     }
 
@@ -40,6 +55,8 @@ public class PlayerEXPManager : MonoBehaviour
             // execute level up code here
             ++playerLevel;
             Debug.Log("Level up, player level now " + playerLevel);
+            // TODO: fix how this works when there is extra exp left over on level up (e.g. 75 -> 76 exp)
+            _expBar.localPosition = new Vector3(-100, _expBar.localPosition.y, _expBar.localPosition.z);
         }
 
         // potentially dangerous recursion
