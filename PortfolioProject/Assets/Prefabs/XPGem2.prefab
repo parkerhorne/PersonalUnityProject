@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6423492782143746569}
   - component: {fileID: 913491298851304432}
   - component: {fileID: 7678448369590912446}
+  - component: {fileID: 8153705154095010046}
   m_Layer: 0
   m_Name: XPGem2
   m_TagString: Untagged
@@ -96,3 +97,16 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8153705154095010046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4833588006076528277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc86958a957aa6841848633020742706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  experience: 5

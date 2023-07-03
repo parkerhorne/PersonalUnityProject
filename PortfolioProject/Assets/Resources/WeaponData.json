@@ -6,11 +6,11 @@
             "damage": 10,
             "numLevels": 5,
             "fireRate": 1.5,
-            "damageGrowth": 2,
+            "damageGrowth": 1.5,
             "quantityGrowth": 1,
-            "fireRateGrowth": 1.33,
-            "speedGrowth": 1.5,
-            "sizeGrowth": 1.5
+            "fireRateGrowth": 1.2,
+            "speedGrowth": 1.2,
+            "sizeGrowth": 1.2
         }
     ]
 

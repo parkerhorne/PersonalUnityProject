@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerEXPManager : MonoBehaviour
@@ -13,6 +14,8 @@ public class PlayerEXPManager : MonoBehaviour
     [SerializeField] private float[] expThresholds;
 
     [SerializeField] private RectTransform _expBar;
+
+    [SerializeField] private TextMeshProUGUI _levelText;
     
     
     void Start()
@@ -28,6 +31,9 @@ public class PlayerEXPManager : MonoBehaviour
         maxLevel = expThresholds.Length;
 
         _expBar = GameObject.Find("XPBar").GetComponent<RectTransform>();
+        _levelText = GameObject.Find("LevelText").GetComponent<TextMeshProUGUI>();
+        _levelText.text = $"Lv. 0";
+
     }
 
 
@@ -55,6 +61,7 @@ public class PlayerEXPManager : MonoBehaviour
             // execute level up code here
             ++playerLevel;
             Debug.Log("Level up, player level now " + playerLevel);
+            _levelText.text = $"Lv. {playerLevel}";
             // TODO: fix how this works when there is extra exp left over on level up (e.g. 75 -> 76 exp)
             _expBar.localPosition = new Vector3(-100, _expBar.localPosition.y, _expBar.localPosition.z);
         }
