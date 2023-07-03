@@ -39,7 +39,7 @@ public class Knife : Weapon
             Vector3 offset = Vector3.zero;
             if (_quantity > 1)
             {
-                offset = new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+                offset = new Vector3(Random.Range(-0.5f, 0.5f), 0, Random.Range(-0.5f, 0.5f));
             }
             GameObject knife = Instantiate(_prefab, _player.transform.position + offset, Quaternion.Euler(90, 0, -90));
             knife.transform.localScale *= _scaleRatio;
@@ -47,10 +47,6 @@ public class Knife : Weapon
             Rigidbody _rb = knife.GetComponent<Rigidbody>();
             _rb.velocity = direction * _speed;
         }
-        /*GameObject knife = Instantiate(_prefab, _player.transform.position, Quaternion.identity);
-        Destroy(knife, 10);
-        Rigidbody _rb = knife.GetComponent<Rigidbody>();
-        _rb.velocity = direction * _speed;*/
     }
 
     public override void Upgrade()
@@ -61,6 +57,7 @@ public class Knife : Weapon
         _speed *= info.speedGrowth;
         fireRate /= info.fireRateGrowth;
         _scaleRatio *= info.sizeGrowth;
+        ++_quantity;
 
     }
     private Vector3 SelectTargetDirection()
