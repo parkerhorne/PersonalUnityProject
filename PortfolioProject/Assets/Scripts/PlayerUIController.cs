@@ -58,7 +58,7 @@ public class PlayerUIController : MonoBehaviour
             _mainUI.SetActive(false);
             _inventory.SetActive(true);
             _pauseMenu.SetActive(true);
-            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
         }
     }
 
@@ -69,6 +69,6 @@ public class PlayerUIController : MonoBehaviour
         _mainUI.SetActive(true);
         _inventory.SetActive(false);
         _pauseMenu.SetActive(false);
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
