@@ -10,9 +10,18 @@ public class PlayerInventory : MonoBehaviour
     public List<Spell> spells;
 
     public List<Item> items;
+
+    private int _maxWeapons;
+
+    private int _maxSpells;
+
+    private int _maxItems;
     // Start is called before the first frame update
     void Start()
     {
+        _maxWeapons = 3;
+        _maxSpells = 2;
+        _maxItems = 6;
        Knife knife = gameObject.AddComponent<Knife>();
     }
 
