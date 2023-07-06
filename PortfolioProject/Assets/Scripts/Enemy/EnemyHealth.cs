@@ -31,7 +31,7 @@ public class EnemyHealth : MonoBehaviour
             ParticleSystem _ps = _deathParticlesObj.GetComponent<ParticleSystem>();
             _deathParticlesObj.transform.position = transform.position;
             _ps.Play();
-            Debug.Log("Enemy died!");
+            //Debug.Log("Enemy died!");
             EnemyDropManager _dropManager = GameObject.Find("EnemySpawnSystem").GetComponent<EnemyDropManager>();
             Instantiate(_dropManager.gemDrops[0], transform.position, Quaternion.identity);
             Destroy(GetComponent<MeshRenderer>());

@@ -64,7 +64,6 @@ public class PlayerUIController : MonoBehaviour
 
     public void Unpause()
     {
-        Debug.Log("Unpause function called");
         Time.timeScale = 1;
         _mainUI.SetActive(true);
         _inventory.SetActive(false);

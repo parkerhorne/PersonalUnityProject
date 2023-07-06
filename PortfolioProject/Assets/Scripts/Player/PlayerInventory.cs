@@ -23,6 +23,7 @@ public class PlayerInventory : MonoBehaviour
         _maxSpells = 2;
         _maxItems = 6;
        Knife knife = gameObject.AddComponent<Knife>();
+       Bomb bomb = gameObject.AddComponent<Bomb>();
     }
 
     // Update is called once per frame

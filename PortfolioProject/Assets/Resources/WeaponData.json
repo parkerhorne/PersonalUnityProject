@@ -11,6 +11,17 @@
             "fireRateGrowth": 1.2,
             "speedGrowth": 1.2,
             "sizeGrowth": 1.2
+        },
+        {
+            "name": "Bomb",
+            "damage": 20,
+            "numLevels": 6,
+            "fireRate": 2.5,
+            "damageGrowth": 1.2,
+            "quantityGrowth": 1,
+            "fireRateGrowth": 1.2,
+            "speedGrowth": 1.2,
+            "sizeGrowth": 1.33
         }
     ]
 
