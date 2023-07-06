@@ -11,7 +11,7 @@ public class Explosion : MonoBehaviour
     private float _damage;
 
     private int _layerMask;
-    private GameObject _particles;
+    [SerializeField] private GameObject _particles;
 
     private void Start()
     {
@@ -32,7 +32,15 @@ public class Explosion : MonoBehaviour
                    EnemyHealth health = col.GetComponent<EnemyHealth>();
                    health.TakeDamage(_damage);
                }
-               Destroy(gameObject);
+
+               _particles.transform.position = transform.position;
+               _particles.GetComponent<ParticleSystem>().Play();
+               Destroy(GetComponent<Rigidbody>());
+               foreach (MeshRenderer renderer in GetComponentsInChildren<MeshRenderer>())
+               {
+                   Destroy(renderer);
+               }
+               Destroy(gameObject, 1);
             }
         }
     }

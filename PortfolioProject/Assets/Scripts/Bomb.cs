@@ -19,8 +19,10 @@ public class Bomb : Weapon
     public override void Attack()
     {
         GameObject bomb = Instantiate(_prefab, transform.position, Quaternion.identity);
+        bomb.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-3f, 3f),
+            Random.Range(0f, 2f), Random.Range(-3f, 3f)), ForceMode.Impulse);
         Explosion explosion = bomb.GetComponent<Explosion>();
-        explosion.Explode(15f, 1.5f, damage);
+        explosion.Explode(5f, 1.5f, damage);
     }
 
     public override void Upgrade()
