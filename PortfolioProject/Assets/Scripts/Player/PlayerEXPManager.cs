@@ -63,7 +63,8 @@ public class PlayerEXPManager : MonoBehaviour
             Debug.Log("Level up, player level now " + playerLevel);
             _levelText.text = $"Lv. {playerLevel}";
             // TODO: fix how this works when there is extra exp left over on level up (e.g. 75 -> 76 exp)
-            _expBar.localPosition = new Vector3(-100, _expBar.localPosition.y, _expBar.localPosition.z);
+            _expBar.localPosition = new Vector3(-100 + ((currentExp - expThresholds[playerLevel]) / (expThresholds[playerLevel] - expThresholds[playerLevel - 1])),
+                _expBar.localPosition.y, _expBar.localPosition.z);
         }
 
         // potentially dangerous recursion
